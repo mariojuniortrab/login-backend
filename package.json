@@ -4,7 +4,8 @@
   "description": "Login base dos sistemas da Primus",
   "main": "src/loader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "production": "pm2 start src/loader.js --name backend"
   },
   "author": "",
   "license": "ISC",
