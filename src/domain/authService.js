@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 const env = require('../config/.env')
-const user = require('../db/users')
+const user = require('../db/user')
 
 const emailRegex = /\S+@\S+\.\S+/
 const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/
@@ -19,8 +19,8 @@ exports.login = (req, res, next) => {
     const login = req.body.login || ''
     const password = req.body.password || ''
 
-    user.login()
-    res.send('teste')
+    user.findUserByLogin('mareto')
+    res.send('testeiculo')
 }
 
 exports.validateToken = (req, res, next) => {
