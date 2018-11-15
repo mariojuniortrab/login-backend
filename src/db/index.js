@@ -1,4 +1,7 @@
-var pgp = require('pg-promise')(/*options*/)
+var pgp = require('pg-promise')({
+  error : (err, e) => {
+  }
+})
 var conn = null
 
 exports.getConn = () => {

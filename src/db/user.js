@@ -1,16 +1,9 @@
 const conn = require('./index').getConn()
 
-exports.findUserByLogin = (login) => {
-    conn.oneOrNone('select id, login from users where login = $1', login)
-    .then((data) => {
-        console.log(data)
-    })
+exports.findUserByUsername = (username) => {
+   return conn.oneOrNone('select id, username, password, ativo, email from users where username = $1', username)
 }
 
-exports.login = () => {
-    console.log('realizando login');
-}
-
-exports.signup = () => {
-    console.log("signing up");
+exports.insertUser = (user) => {
+    return conn.none('INSERT INTO users(username, password, email, ativo) VALUES(${username}, ${password}, ${email}, ${ativo})', user)
 }
